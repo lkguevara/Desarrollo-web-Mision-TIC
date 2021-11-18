@@ -5,9 +5,18 @@ const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
-      <SidebarRoute to='/page2' title='Pagina2' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
-      <SidebarRoute to='/category1/page1' title='Test' icon='fas fa-car' />
+      <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-smile-wink' />
+      <SidebarRoute to='/page3' title='Inscripciones' icon='fas fa-smile-wink' />
+      <SidebarRoute to='/page4' title='Avances' icon='fas fa-smile-wink' />
+      <SidebarRoute to='/page5' title='Usuarios' icon='fas fa-smile-wink'/>
+      <SidebarRoute to='/page6' title='Master Usuarios' icon='fas fa-smile-wink'/>
+      <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
+      <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
+
+
+      {/* <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
+      <SidebarRoute to='/category1/page1' title='Test' icon='fas fa-car' /> */}
+      
     </ul>
   );
 };
@@ -16,7 +25,7 @@ const Logo = () => {
   return (
     <div className='py-3 w-full flex flex-col items-center justify-center'>
       <img src='logo.png' alt='Logo' className='h-16' />
-      <span className='my-2 text-xl font-bold text-center'>Título de Mi Aplicación</span>
+      <span className='my-2 text-xl font-bold text-center'>Fenix Project</span>
     </div>
   );
 };
