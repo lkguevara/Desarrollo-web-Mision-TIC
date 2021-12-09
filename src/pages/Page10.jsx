@@ -2,10 +2,10 @@ import React from 'react';
 import {Button, Form, Container, Row} from 'react-bootstrap';
 
 
-const Page4 = () => {
+const Page10 = () => {
   return <div>
 <Container className="mb-1 col-4 p-5 text-align-center">
-  <h3>Formulario para agregar avances</h3>
+  <h3>Formulario para actualizar avances</h3>
 </Container>
 
       <Container className="mb-3 col-8 p-2">
@@ -39,4 +39,4 @@ const Page4 = () => {
 
 };
 
-export default Page4;
+export default Page10;

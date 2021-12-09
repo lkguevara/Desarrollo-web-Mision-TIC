@@ -12,6 +12,8 @@ const SidebarLinks = () => {
       <SidebarRoute to='/page6' title='Master Usuarios' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
+      <SidebarRoute to='/page9' title='Actualizar Proyecto' icon='fas fa-smile-wink'/>
+      <SidebarRoute to='/page10' title='Actualizar Avances' icon='fas fa-smile-wink'/>
 
 
       {/* <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
@@ -75,8 +77,8 @@ const SidebarRoute = ({ to, title, icon }) => {
         to={to}
         className={({ isActive }) =>
           isActive
-            ? 'sidebar-route text-white bg-indigo-700'
-            : 'sidebar-route text-gray-900 hover:text-white hover:bg-indigo-400'
+            ? 'sidebar-route text-white bg-orange-400'
+            : 'sidebar-route text-gray-900 hover:text-white hover:bg-yellow-400'
         }
       >
         <div className='flex items-center'>

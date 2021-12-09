@@ -1,0 +1,47 @@
+.tablaProyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 24px;
+}
+
+th {
+  background-color: #B8DFD8;
+}
+
+td {
+  background-color:white;
+  border-color: gray;
+}
+
+form {
+  display: flex;
+  gap: 5px;
+}
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 18px;
+}

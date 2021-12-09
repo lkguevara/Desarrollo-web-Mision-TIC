@@ -11,6 +11,8 @@ import Page5 from 'pages/Page5';
 import Page6 from 'pages/Page6';
 import Page7 from 'pages/Page7';
 import Page8 from 'pages/Page8';
+import Page9 from 'pages/Page9';
+import Page10 from 'pages/Page10';
 import IndexCategory1 from 'pages/category1/Index';
 import Category1 from 'pages/category1/CategoryPage1';
 import 'styles/globals.css';
@@ -42,6 +44,8 @@ function App() {
               <Route path='page6' element={<Page6 />} />
               <Route path='page7' element={<Page7 />} />
               <Route path='page8' element={<Page8 />} />
+              <Route path='page9' element={<Page9 />} />
+              <Route path='page10' element={<Page10 />} />
               <Route path='category1' element={<IndexCategory1 />} />
               <Route path='category1/page1' element={<Category1 />} />
             </Route>
