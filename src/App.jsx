@@ -18,6 +18,7 @@ import Category1 from 'pages/category1/CategoryPage1';
 import IndexUsuarios from 'pages/usuarios';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EditarUsuario from 'pages/usuarios/editar';
 
 // import PrivateRoute from 'components/PrivateRoute';
 const httpLink = createHttpLink ({
@@ -43,6 +44,7 @@ function App() {
             <Route path='/' element={<PrivateLayout />}>
               <Route path='' element={<Index />} />
               <Route path='/usuarios' element={<IndexUsuarios/>} />
+              <Route path='/usuarios/editar/:_id' element={<EditarUsuario/>} />
               <Route path='page2' element={<Page2 />} />
               <Route path='page3' element={<Page3 />} />
               <Route path='page4' element={<Page4 />} />

@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USUARIOS } from 'graphql/usuarios/queries';
 import {Button, Table, Container} from 'react-bootstrap';
 import {toast} from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 const IndexUsuarios = () => {
@@ -51,7 +52,11 @@ const IndexUsuarios = () => {
                   <td>{u.apellido}</td>
                   <td>{u.rol}</td>
                   <td>{u.estado}</td>
-
+                  <td>
+                      <Link to = {`/usuarios/editar/$(u._id)`}>
+                          <i className='fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer' />
+                      </Link>
+                  </td>
               </tr>
 
           );
