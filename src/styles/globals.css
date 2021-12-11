@@ -9,3 +9,32 @@
 .sidebar-route {
   @apply rounded-md flex w-full justify-between cursor-pointer items-center m-3 p-3;
 }
+
+/* .sidebar {
+position: absolute;
+width: 210px;
+height: 1090px;
+background: #F9F3DF;
+box-sizing: border-box;
+}
+
+.sidebar-route{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin: 0.75rem;
+  padding: 0.75rem;
+  background: #FAA54F;
+  border: 1px solid #003569;
+  box-sizing: border-box;
+  border-radius: 11px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  color: black;
+}
+
+ */

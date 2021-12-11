@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Table, Container } from 'react-bootstrap';
+import { Table, Container } from 'react-bootstrap';
 
 const Page2 = () => {
   return <div>
