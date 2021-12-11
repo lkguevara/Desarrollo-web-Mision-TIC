@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_USUARIOS } from 'graphql/usuarios/queries';
 import {Button, Table, Container} from 'react-bootstrap';
-
+import {toast} from 'react-toastify';
 
 
 const IndexUsuarios = () => {
@@ -12,11 +12,19 @@ const IndexUsuarios = () => {
         console.log('data servidor', data);
     }, [data]);
 
+    useEffect(() => {
+        if(error){
+            toast.error('Error consultando usuarios');
+        }
+    }, [error]); 
+
+    if (loading) return <div>Cargando...</div>;
 
     return (
 
         <div>
            <Container className="mb-1 col-4 p-5 text-align-center">
+
   <h3>Maestro de Usuarios</h3>
 </Container>
 
