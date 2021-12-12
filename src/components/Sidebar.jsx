@@ -5,19 +5,15 @@ const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
-      <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/page3' title='Inscripciones' icon='fas fa-smile-wink' />
+      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user'/>
+      <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-smile-wink' />
+      <SidebarRoute to='/inscripciones' title='Inscripciones' icon='fas fa-smile-wink' />
       <SidebarRoute to='/page4' title='Avances' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/usuarios' title='Master Usuarios' icon='fas fa-user'/>
       <SidebarRoute to='/page6' title='Registro Usuarios' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page9' title='Actualizar Proyecto' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page10' title='Actualizar Avances' icon='fas fa-smile-wink'/>
-
-
-      {/* <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
-      <SidebarRoute to='/category1/page1' title='Test' icon='fas fa-car' /> */}
       
     </ul>
   );
