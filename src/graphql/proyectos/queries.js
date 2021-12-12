@@ -12,6 +12,7 @@ const PROYECTOS = gql`
       }
       lider {
         _id
+        
       }
     }
   }

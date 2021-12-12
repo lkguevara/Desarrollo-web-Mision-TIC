@@ -31,11 +31,11 @@ const IndexProyectos = () => {
     return (
       <div className='p-10 flex flex-col'>
         <div className='flex w-full items-center justify-center'>
-          <h1 className='text-2xl font-bold text-gray-900'>Lista de Proyectos</h1>
+          <h1 className='text-2xl font-bold text-gray-900'> Máster de Proyectos</h1>
         </div>
         {/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
           <div className='my-2 self-end'>
-            <button className='bg-indigo-500 text-gray-50 p-2 rounded-lg shadow-lg hover:bg-indigo-400'>
+            <button className='bg-yellow-200 text-black p-2 rounded-lg shadow-lg hover:text-yellow-500'>
               <Link to='/proyectos/nuevo'>Crear nuevo proyecto</Link>
             </button>
           </div>
@@ -57,7 +57,7 @@ const AccordionProyecto = ({ proyecto }) => {
       <AccordionStyled>
         <AccordionSummaryStyled expandIcon={<i className='fas fa-chevron-down' />}>
           <div className='flex w-full justify-between'>
-            <div className='uppercase font-bold text-gray-100 '>
+            <div className='uppercase font-bold text-white'>
               {proyecto.nombre} - {proyecto.estado}
             </div>
           </div>
@@ -65,7 +65,7 @@ const AccordionProyecto = ({ proyecto }) => {
         <AccordionDetailsStyled>
           {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
             <i
-              className='mx-4 fas fa-pen text-yellow-600 hover:text-yellow-400'
+              className='mx-4 fas fa-pen text-red-400 hover:text-yellow-400'
               onClick={() => {
                 setShowDialog(true);
               }}
@@ -78,7 +78,7 @@ const AccordionProyecto = ({ proyecto }) => {
               inscripciones={proyecto.inscripciones}
             />
           {/* </PrivateComponent> */}
-          <div>Liderado Por: {proyecto.lider.correo}</div>
+          <div>Lider: {proyecto.lider._id}</div>
           <div className='flex'>
             {proyecto.objetivos.map((objetivo) => {
               return <Objetivo tipo={objetivo.tipo} descripcion={objetivo.descripcion} />;
@@ -118,7 +118,7 @@ const FormEditProyecto = ({ _id }) => {
 
   return (
     <div className='p-4'>
-      <h1 className='font-bold'>Modificar Estado del Proyecto</h1>
+      <h1 className='font-bold'>Modificar estado del proyecto</h1>
       <form
         ref={form}
         onChange={updateFormData}
@@ -134,7 +134,7 @@ const FormEditProyecto = ({ _id }) => {
 
 const Objetivo = ({ tipo, descripcion }) => {
   return (
-    <div className='mx-5 my-4 bg-gray-50 p-8 rounded-lg flex flex-col items-center justify-center shadow-xl'>
+    <div className='mx-5 my-4 bg-red-200 p-8 rounded-lg flex flex-col items-center justify-center shadow-xl'>
       <div className='text-lg font-bold'>{tipo}</div>
       <div>{descripcion}</div>
       {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
@@ -172,7 +172,7 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
   return (
     <>
       {estadoInscripcion !== '' ? (
-        <span>Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}</span>
+        <span>Ya estás inscrito en este proyecto y el estado es {estadoInscripcion}</span>
       ) : (
         <ButtonLoading
           onClick={() => confirmarInscripcion()}
