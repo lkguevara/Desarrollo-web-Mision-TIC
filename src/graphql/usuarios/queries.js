@@ -1,34 +1,32 @@
 import { gql } from '@apollo/client';
 
-const GET_USUARIOS = gql`
-query users {
-    users {
-        _id
-        correo
-        identificacion
-        nombre
-        apellido
-        rol
-        estado
+//agregar filtro
+const GET_USUARIOS = gql` 
+query Usuarios {
+  Usuarios {
+      _id
+      nombre
+      apellido
+      correo
+      estado
+      identificacion
+      rol
     }
-}
+  }
 `;
 
 const GET_USUARIO = gql`
-query Usuario ($id: String!) {
-    Usuario(_id: $id) {
-        _id
-        correo
-        identificacion
-        nombre
-        apellido
-        rol
-        estado
+  query Usuario($_id: String!) {
+    Usuario(_id: $_id) {
+      _id
+      nombre
+      apellido
+      correo
+      estado
+      identificacion
+      rol
     }
-}
+  }
 `;
 
-
-
-
-export {GET_USUARIOS, GET_USUARIO};
+export { GET_USUARIOS, GET_USUARIO };

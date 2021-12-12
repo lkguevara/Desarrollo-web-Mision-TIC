@@ -19,15 +19,17 @@ import IndexUsuarios from 'pages/usuarios';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditarUsuario from 'pages/usuarios/editar';
+import 'styles/globals.css';
+import 'styles/tabla.css';
 
 // import PrivateRoute from 'components/PrivateRoute';
-const httpLink = createHttpLink ({
-  uri: "https://fenix-projects.herokuapp.com/", //agregar url del servidor Graphql
-})
+// const httpLink = createHttpLink ({
+//   uri: 'https://fenix-projects.herokuapp.com/graphql' ,
+// });
 
 
 const client = new ApolloClient ({
-  uri: httpLink,
+  uri: 'https://fenix-projects.herokuapp.com/graphql',
   cache: new InMemoryCache()
 })
 
