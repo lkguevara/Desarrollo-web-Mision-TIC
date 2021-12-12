@@ -7,7 +7,7 @@
   .tabla td,
   .tabla th {
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #FAA54F;
   }
   
   .tabla th {
@@ -23,5 +23,5 @@
   }
   
   .tabla tr:hover {
-    background-color: #ddd;
+    background-color: #fddcbc;
   }
