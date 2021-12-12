@@ -15,6 +15,7 @@ import IndexCategory1 from 'pages/category1/Index';
 import Category1 from 'pages/category1/CategoryPage1';
 import IndexUsuarios from 'pages/usuarios';
 import IndexProyectos from 'pages/proyectos/Index';
+import IndexInscripciones from 'pages/inscripciones';
 import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,6 +50,7 @@ function App() {
               <Route path='/usuarios/editar/:_id' element={<EditarUsuario/>} />
               <Route path='/proyectos' element={<IndexProyectos />} />
               <Route path='/proyectos/nuevo' element={<NuevoProyecto />} />
+              <Route path='/inscripciones' element={<IndexInscripciones />} />
               <Route path='page4' element={<Page4 />} />
               {/* <Route path='page5' element={<Page5 />} /> */}
               <Route path='page6' element={<Page6 />} />

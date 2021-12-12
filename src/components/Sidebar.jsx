@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const SidebarLinks = () => {
   return (
-    <ul className='mt-12'>
+    <ul className='mt-18 '>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
       <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user'/>
       <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-scroll' />
@@ -69,7 +69,7 @@ const ResponsiveSidebar = () => {
 const SidebarRoute = ({ to, title, icon }) => {
   return (
     <li>
-      <NavLink
+      <NavLink 
         to={to}
         className={({ isActive }) =>
           isActive
