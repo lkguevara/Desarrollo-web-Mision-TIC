@@ -3,7 +3,7 @@ import PrivateLayout from 'layouts/PrivateLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UserContext } from 'context/userContext';
 import {ApolloProvider, ApolloClient, createHttpLink, InMemoryCache} from '@apollo/client';
-import Index from 'pages/Index';
+import Index from 'pages/login';
 import Page4 from 'pages/Page4';
 // import Page5 from 'pages/Page5';
 import Page6 from 'pages/Page6';
@@ -17,6 +17,7 @@ import IndexUsuarios from 'pages/usuarios';
 import IndexProyectos from 'pages/proyectos/Index';
 import IndexInscripciones from 'pages/inscripciones';
 import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
+import Home from 'pages/Home';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditarUsuario from 'pages/usuarios/editar';
@@ -45,7 +46,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<PrivateLayout />}>
-              <Route path='' element={<Index />} />
+              <Route path='/Home' element={<Home />} />
               <Route path='/usuarios' element={<IndexUsuarios/>} />
               <Route path='/usuarios/editar/:_id' element={<EditarUsuario/>} />
               <Route path='/proyectos' element={<IndexProyectos />} />

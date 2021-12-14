@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Form, Container, Row} from 'react-bootstrap';
 
 
-const Index = () => {
+const Login = () => {
   return (
     <div>
      {/*  <div className='bg-blue-300 h-10'>Iniciar Sesión</div>
@@ -44,4 +44,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Login;
