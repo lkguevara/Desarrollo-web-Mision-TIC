@@ -9,11 +9,7 @@ const SidebarLinks = () => {
       <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-scroll' />
       <SidebarRoute to='/inscripciones' title='Inscripciones' icon='fas fa-sign-in-alt' />
       <SidebarRoute to='/page4' title='Avances' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/page6' title='Registro Usuarios' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page9' title='Actualizar Proyecto' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page10' title='Actualizar Avances' icon='fas fa-smile-wink'/>
+     
       
     </ul>
   );

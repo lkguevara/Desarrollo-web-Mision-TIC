@@ -7,7 +7,6 @@ const GET_INSCRIPCIONES = gql`
       estado
       estudiante {
         _id
-  
       }
       proyecto {
         _id
@@ -15,5 +14,4 @@ const GET_INSCRIPCIONES = gql`
     }
   }
 `;
-
 export { GET_INSCRIPCIONES };
