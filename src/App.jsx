@@ -18,6 +18,7 @@ import IndexProyectos from 'pages/proyectos/Index';
 import IndexInscripciones from 'pages/inscripciones';
 import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
 import Home from 'pages/Home';
+import Perfil from 'pages/Perfil';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditarUsuario from 'pages/usuarios/editar';
@@ -46,12 +47,13 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<PrivateLayout />}>
-              <Route path='/Home' element={<Home />} />
+              <Route path='/' element={<Home />} />
               <Route path='/usuarios' element={<IndexUsuarios/>} />
               <Route path='/usuarios/editar/:_id' element={<EditarUsuario/>} />
               <Route path='/proyectos' element={<IndexProyectos />} />
               <Route path='/proyectos/nuevo' element={<NuevoProyecto />} />
               <Route path='/inscripciones' element={<IndexInscripciones />} />
+              <Route path='/perfil' element={<Perfil/>} />
               <Route path='page4' element={<Page4 />} />
               {/* <Route path='page5' element={<Page5 />} /> */}
               <Route path='page6' element={<Page6 />} />

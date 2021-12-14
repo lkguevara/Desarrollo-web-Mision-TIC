@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const SidebarLinks = () => {
   return (
     <ul className='mt-18 '>
-
+      <SidebarRoute to='/perfil' title='Perfil' icon='fas fa-user' />
       <SidebarRoute to='/Home' title='Inicio' icon='fas fa-home' />
       <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user'/>
       <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-scroll' />
