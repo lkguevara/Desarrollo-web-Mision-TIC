@@ -11,12 +11,16 @@ const SidebarLinks = () => {
       <SidebarRoute to='/inscripciones' title='Inscripciones' icon='fas fa-sign-in-alt' />
       <SidebarRoute to='/page4' title='Avances' icon='fas fa-smile-wink' />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page9' title='Actualizar Proyecto' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/page10' title='Actualizar Avances' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/auth/login' title='Login' icon='fas fa-smile-wink'/>
       <SidebarRoute to='/auth/register' title='Registro Usuarios' icon='fas fa-smile-wink'/>
+=======
+     
+>>>>>>> 0efb7ef07f446ec0c2e900876caa5fd016348c93
 =======
      
 >>>>>>> 0efb7ef07f446ec0c2e900876caa5fd016348c93
