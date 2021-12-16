@@ -14,10 +14,10 @@ const Enum_Rol = {
     ACTIVO: 'Activo',
     INACTIVO: 'Inactivo',
   };
-  
+
   const Enum_TipoObjetivo = {
     GENERAL: 'General',
     ESPECIFICO: 'Específico',
   };
   
-  export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_TipoObjetivo };
+  export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_TipoObjetivo};
