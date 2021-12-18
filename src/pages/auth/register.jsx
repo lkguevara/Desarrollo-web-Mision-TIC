@@ -9,12 +9,13 @@ import { REGISTRO } from 'graphql/auth/mutations';
 import { useMutation } from '@apollo/client';
 import { useAuth } from 'context/authContext';
 
-
-const Register= () => {
-  /* const { setToken } = useAuth(); */
+const Register = () => {
+  const { setToken } = useAuth();
   const navigate = useNavigate();
   const { form, formData, updateFormData } = useFormData();
 
+  // falta capturar error de mutacion
+  // revisar si es requerido loading de mutacion
   const [registro, { data: dataMutation }] = useMutation(REGISTRO);
 
   const submitForm = (e) => {
@@ -25,11 +26,12 @@ const Register= () => {
   useEffect(() => {
     if (dataMutation) {
       if (dataMutation.registro.token) {
-        localStorage.setItem("Ttoken", dataMutation.registro.token)
+        setToken(dataMutation.registro.token);
         navigate('/');
       }
     }
-  }, [dataMutation, navigate]);
+  }, [dataMutation, setToken, navigate]);
+
 
   return (
     <div className='flex flex-col h-full w-full items-center justify-center'>

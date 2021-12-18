@@ -19,10 +19,7 @@ const uploadFormData = async (formData) => {
         await axios.request(options).then((response) => {
           formDataCopy[field] = response.data.url;
         });
-        // Falta captura de error del request
-        // .catch((error) => {
-        //   console.error('err', error);
-        // });
+       
       }
     })
   );

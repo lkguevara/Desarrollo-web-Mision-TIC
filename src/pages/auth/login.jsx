@@ -9,7 +9,7 @@ import { useAuth } from 'context/authContext';
 
 const Login = () => {
   const navigate = useNavigate();
- /*  const { setToken } = useAuth(); */
+  const { setToken } = useAuth();
   const { form, formData, updateFormData } = useFormData();
 
   // falta captura de error de la mutacion
@@ -27,11 +27,11 @@ const Login = () => {
   useEffect(() => {
     if (dataMutation) {
       if (dataMutation.login.token) {
-        /* setToken(dataMutation.login.token); */
+        setToken(dataMutation.login.token);
         navigate('/');
       }
     }
-  }, [dataMutation, navigate]);
+  }, [dataMutation, setToken, navigate]);
 
   return (
     <div className='flex flex-col items-center justify-center w-full h-full p-10'>
