@@ -15,24 +15,20 @@ import IndexCategory1 from 'pages/category1/Index';
 import Category1 from 'pages/category1/CategoryPage1';
 import IndexUsuarios from 'pages/usuarios';
 import EditarUsuario from 'pages/usuarios/editar';
-/* import AuthLayout from 'layouts/AuthLayout'; */
+import Home from 'pages/Home';
+import Perfil from 'pages/Perfil';
+import AuthLayout from 'layouts/AuthLayout';
 import Register from 'pages/auth/register';
 import Login from 'pages/auth/login';
 import { AuthContext } from 'context/authContext';
-import IndexProyectos from 'pages/proyectos/Index';
 import jwt_decode from 'jwt-decode';
 import 'styles/globals.css';
 import 'styles/tabla.css';
 import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
 import IndexInscripciones from 'pages/inscripciones';
+import IndexAvance from 'pages/avances';
+import IndexProyectos from 'pages/proyectos/Index';
 /* import Profile from 'pages/profile'; */
-import Page4 from 'pages/Page4';
-import Page7 from 'pages/Page7';
-import Page8 from 'pages/Page8';
-import Page9 from 'pages/Page9';
-import Page10 from 'pages/Page10';
-import Home from 'pages/Home';
-import Perfil from 'pages/Perfil';
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'styles/globals.css';
@@ -40,10 +36,11 @@ import 'styles/tabla.css';
 
 
 
+
 // import PrivateRoute from 'components/PrivateRoute';
 
 const httpLink = createHttpLink({
-  uri: 'https://fenix-projects.herokuapp.com/graphql',
+  uri: 'https://servidor-gql-mintic.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -99,24 +96,21 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<PrivateLayout />}>
-              <Route path='/' element={<Home />} />
+              <Route path='' element={<Home />} />
               <Route path='/usuarios' element={<IndexUsuarios/>} />
               <Route path='/usuarios/editar/:_id' element={<EditarUsuario/>} />
               <Route path='/proyectos' element={<IndexProyectos />} />
               <Route path='/proyectos/nuevo' element={<NuevoProyecto />} />
               <Route path='/inscripciones' element={<IndexInscripciones />} />
+              <Route path='/avances/:projectid' element={<IndexAvance />} />
               <Route path='/perfil' element={<Perfil/>} />
-              <Route path='page4' element={<Page4 />} />
-              {/* <Route path='page5' element={<Page5 />} /> */}
-              <Route path='/auth/register' element={<Register />} />
-              <Route path='/auth/login' element={<Login />} />
-              <Route path='page7' element={<Page7 />} />
-              <Route path='page8' element={<Page8 />} />
-              <Route path='page9' element={<Page9 />} />
-              <Route path='page10' element={<Page10 />} />
               <Route path='category1' element={<IndexCategory1 />} />
               <Route path='category1/page1' element={<Category1 />} />
             </Route>
+            <Route path='/auth' element={<AuthLayout />}>
+                <Route path='register' element={<Register />} />
+                <Route path='login' element={<Login />} />
+              </Route>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

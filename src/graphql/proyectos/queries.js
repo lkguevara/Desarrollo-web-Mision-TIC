@@ -7,12 +7,19 @@ const PROYECTOS = gql`
       nombre
       estado
       objetivos {
+        _id
         descripcion
         tipo
       }
       lider {
         _id
-        
+        correo
+      }
+      inscripciones {
+        estado
+        estudiante {
+          _id
+        }
       }
     }
   }
