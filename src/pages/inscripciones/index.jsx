@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-// import PrivateRoute from 'components/PrivateRoute';
+import PrivateRoute from 'components/PrivateRoute';
 import { GET_INSCRIPCIONES } from 'graphql/inscripciones/queries';
 import { APROBAR_INSCRIPCION } from 'graphql/inscripciones/mutations';
 import ButtonLoading from 'components/ButtonLoading';
@@ -12,14 +12,12 @@ import {
 } from 'components/Accordion';
 
 const IndexInscripciones = () => {
-  const { data, loading, error, refetch } = useQuery(GET_INSCRIPCIONES);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const { data, loading, refetch } = useQuery(GET_INSCRIPCIONES);
+
   if (loading) return <div>Loading...</div>;
   return (
-    // <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
+    <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
       <div className='p-10'>
         <div>Pagina de inscripciones</div>
         <div className='my-4'>
@@ -38,30 +36,29 @@ const IndexInscripciones = () => {
           />
         </div>
       </div>
-    // </PrivateRoute>
+    </PrivateRoute>
   );
 };
 
-const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => {
-  return (
-    <AccordionStyled>
-      <AccordionSummaryStyled>
-        {titulo} ({data.length})
-      </AccordionSummaryStyled>
-      <AccordionDetailsStyled>
-        <div className='flex'>
-          {data &&
-            data.map((inscripcion) => {
-              return <Inscripcion inscripcion={inscripcion} refetch={refetch} />;
-            })}
-        </div>
-      </AccordionDetailsStyled>
-    </AccordionStyled>
-  );
-};
+const AccordionInscripcion = ({ data, titulo, refetch = () => {} }) => (
+  <AccordionStyled>
+    <AccordionSummaryStyled>
+      {titulo} ({data.length})
+    </AccordionSummaryStyled>
+    <AccordionDetailsStyled>
+      <div className='flex'>
+        {data &&
+          data.map((inscripcion) => (
+            <Inscripcion inscripcion={inscripcion} refetch={refetch} />
+          ))}
+      </div>
+    </AccordionDetailsStyled>
+  </AccordionStyled>
+);
 
 const Inscripcion = ({ inscripcion, refetch }) => {
-  const [aprobarInscripcion, { data, loading, error }] = useMutation(APROBAR_INSCRIPCION);
+  const [aprobarInscripcion, { data, loading, error }] =
+    useMutation(APROBAR_INSCRIPCION);
 
   useEffect(() => {
     if (data) {

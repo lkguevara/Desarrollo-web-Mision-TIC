@@ -11,18 +11,20 @@ import { nanoid } from 'nanoid';
 import { ObjContext } from 'context/objContext';
 import { useObj } from 'context/objContext';
 import { CREAR_PROYECTO } from 'graphql/proyectos/mutations';
+import { toast } from 'react-toastify';
 
 const NuevoProyecto = () => {
   const { form, formData, updateFormData } = useFormData();
   const [listaUsuarios, setListaUsuarios] = useState({});
-  const { data, loading, error } = useQuery(GET_USUARIOS, {
+  const { data, loading, error} = useQuery(GET_USUARIOS, {
     variables: {
       filtro: { rol: 'LIDER', estado: 'AUTORIZADO' },
     },
   });
 
-  const [crearProyecto, { data: mutationData, loading: mutationLoading, error: mutationError }] =
+  const [crearProyecto, { data: mutationData, loading: mutationLoading, error: mutationError, refetch}] =
     useMutation(CREAR_PROYECTO);
+    
 
   useEffect(() => {
     console.log(data);
@@ -40,8 +42,10 @@ const NuevoProyecto = () => {
     console.log('data mutation', mutationData);
   });
 
+
   const submitForm = (e) => {
     e.preventDefault();
+    
 
     formData.objetivos = Object.values(formData.objetivos);
     formData.presupuesto = parseFloat(formData.presupuesto);
@@ -49,7 +53,9 @@ const NuevoProyecto = () => {
     crearProyecto({
       variables: formData,
     });
+    
   };
+  
 
   if (loading) return <div>...Loading</div>;
 

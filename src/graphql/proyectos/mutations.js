@@ -25,8 +25,6 @@ const CREAR_PROYECTO = gql`
       fechaFin: $fechaFin
       lider: $lider
       objetivos: $objetivos
-      estado: $estado
-      fase: $fase
     ) {
       _id
     }
