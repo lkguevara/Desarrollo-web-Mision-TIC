@@ -9,8 +9,6 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-/* import Index from 'pages/Index';
-import Page2 from 'pages/Page2'; */
 import IndexCategory1 from 'pages/category1/Index';
 import Category1 from 'pages/category1/CategoryPage1';
 import IndexUsuarios from 'pages/usuarios';
@@ -28,25 +26,19 @@ import NuevoProyecto from 'pages/proyectos/NuevoProyecto';
 import IndexInscripciones from 'pages/inscripciones';
 import IndexAvance from 'pages/avances';
 import IndexProyectos from 'pages/proyectos/Index';
-/* import Profile from 'pages/profile'; */
 import 'styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'styles/globals.css';
 import 'styles/tabla.css';
-
-
-
-
 // import PrivateRoute from 'components/PrivateRoute';
 
+
 const httpLink = createHttpLink({
-  uri: 'https://servidor-gql-mintic.herokuapp.com/graphql',
+  uri: 'https://fenix-projects.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
   const token = JSON.parse(localStorage.getItem('token'));
-  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -102,7 +94,7 @@ function App() {
               <Route path='/proyectos' element={<IndexProyectos />} />
               <Route path='/proyectos/nuevo' element={<NuevoProyecto />} />
               <Route path='/inscripciones' element={<IndexInscripciones />} />
-              <Route path='/avances/:projectid' element={<IndexAvance />} />
+              <Route path='/avances' element={<IndexAvance />} />
               <Route path='/perfil' element={<Perfil/>} />
               <Route path='category1' element={<IndexCategory1 />} />
               <Route path='category1/page1' element={<Category1 />} />

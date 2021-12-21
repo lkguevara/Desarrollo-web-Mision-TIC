@@ -14,11 +14,11 @@ const Perfil = () => {
   const { form, formData, updateFormData } = useFormData();
   const { userData, setUserData } = useUser();
 
-  // falta capturar error de mutacion
+
   const [editarPerfil, { data: dataMutation, loading: loadingMutation }] =
     useMutation(EDITAR_PERFIL);
 
-  // falta capturar error de query
+
   const {
     data: queryData,
     loading: queryLoading,

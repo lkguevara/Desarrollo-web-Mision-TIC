@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { PROYECTOS } from 'graphql/proyectos/queries';
 import DropDown from 'components/Dropdown';
-import { Dialog } from '@mui/material';
-import { Enum_EstadoProyecto, Enum_TipoObjetivo} from 'utils/enums';
-import ButtonLoading from 'components/ButtonLoading';
-import { EDITAR_PROYECTO, ELIMINAR_OBJETIVO, EDITAR_OBJETIVO } from 'graphql/proyectos/mutations';
-import useFormData from 'hooks/useFormData';
-// import PrivateComponent from 'components/PrivateComponent';
-import { Link } from 'react-router-dom';
 import Input from 'components/Input';
-import ReactLoading from 'react-loading';
+import { Dialog } from '@mui/material';
+import { Enum_EstadoProyecto, Enum_TipoObjetivo } from 'utils/enums';
+import ButtonLoading from 'components/ButtonLoading';
+import {
+  EDITAR_PROYECTO,
+  ELIMINAR_OBJETIVO,
+  EDITAR_OBJETIVO,
+} from 'graphql/proyectos/mutations';
+import useFormData from 'hooks/useFormData';
+import PrivateComponent from 'components/PrivateComponent';
+import { Link } from 'react-router-dom';
 import { CREAR_INSCRIPCION } from 'graphql/inscripciones/mutations';
 import { useUser } from 'context/userContext';
 import { toast } from 'react-toastify';
@@ -19,6 +22,8 @@ import {
   AccordionSummaryStyled,
   AccordionDetailsStyled,
 } from 'components/Accordion';
+
+import ReactLoading from 'react-loading';
 
 const IndexProyectos = () => {
   const { data: queryData, loading } = useQuery(PROYECTOS);
@@ -33,7 +38,7 @@ const IndexProyectos = () => {
             Lista de Proyectos
           </h1>
         </div>
-        {/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
+        <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
           <div className='my-2 self-end'>
             <button
               type='button'
@@ -42,7 +47,7 @@ const IndexProyectos = () => {
               <Link to='/proyectos/nuevo'>Crear nuevo proyecto</Link>
             </button>
           </div>
-        {/* </PrivateComponent> */}
+        </PrivateComponent>
         {queryData.Proyectos.map((proyecto) => (
           <AccordionProyecto proyecto={proyecto} />
         ))}
@@ -68,7 +73,7 @@ const AccordionProyecto = ({ proyecto }) => {
           </div>
         </AccordionSummaryStyled>
         <AccordionDetailsStyled>
-          {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
+          <PrivateComponent roleList={['ADMINISTRADOR']}>
             <button
               type='button'
               onClick={() => {
@@ -77,14 +82,14 @@ const AccordionProyecto = ({ proyecto }) => {
             >
               <i className='mx-4 fas fa-pen text-yellow-600 hover:text-yellow-400' />
             </button>
-          {/* </PrivateComponent> */}
-          {/* <PrivateComponent roleList={['ESTUDIANTE']}> */}
+          </PrivateComponent>
+          <PrivateComponent roleList={['LIDER', 'ESTUDIANTE']}>
             <InscripcionProyecto
               idProyecto={proyecto._id}
               estado={proyecto.estado}
               inscripciones={proyecto.inscripciones}
             />
-          {/* </PrivateComponent> */}
+          </PrivateComponent>
           <div>Liderado Por: {proyecto.lider.correo}</div>
           <div className='flex'>
             {proyecto.objetivos.map((objetivo, index) => (
@@ -180,7 +185,7 @@ const Objetivo = ({ index, _id, idProyecto, tipo, descripcion }) => {
     <div className='mx-5 my-4 bg-gray-50 p-8 rounded-lg flex flex-col items-center justify-center shadow-xl'>
       <div className='text-lg font-bold'>{tipo}</div>
       <div>{descripcion}</div>
-      {/* <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}> */}
+      <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
         <div className='flex my-2'>
           <button type='button' onClick={() => setShowEditDialog(true)}>
             <i className='fas fa-pen mx-2 text-yellow-500 hover:text-yellow-200 cursor-pointer' />
@@ -198,7 +203,7 @@ const Objetivo = ({ index, _id, idProyecto, tipo, descripcion }) => {
             setShowEditDialog={setShowEditDialog}
           />
         </Dialog>
-      {/* </PrivateComponent> */}
+      </PrivateComponent>
     </div>
   );
 };
@@ -298,9 +303,20 @@ const InscripcionProyecto = ({ idProyecto, estado, inscripciones }) => {
   return (
     <>
       {estadoInscripcion !== '' ? (
-        <span>
-          Ya estas inscrito en este proyecto y el estado es {estadoInscripcion}
-        </span>
+        <div className='flex flex-col items-start'>
+          <span>
+            Ya estas inscrito en este proyecto y el estado es{' '}
+            {estadoInscripcion}
+          </span>
+          {estadoInscripcion === 'ACEPTADO' && (
+            <Link
+              to={`/avances/${idProyecto}`}
+              className='bg-yellow-700 p-2 rounded-lg text-white my-2 hover:bg-yellow-500'
+            >
+              Visualizar Avances
+            </Link>
+          )}
+        </div>
       ) : (
         <ButtonLoading
           onClick={() => confirmarInscripcion()}
