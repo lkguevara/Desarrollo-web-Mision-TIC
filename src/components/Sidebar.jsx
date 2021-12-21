@@ -1,25 +1,48 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from 'context/authContext';
+import { useUser } from 'context/userContext';
+import PrivateComponent from 'components/PrivateComponent';
 
 const SidebarLinks = () => {
   return (
     <ul className='mt-18 '>
-      <SidebarRoute to='/perfil' title='Perfil' icon='fas fa-user' />
-      <SidebarRoute to='/Home' title='Inicio' icon='fas fa-home' />
-      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user'/>
-      <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-scroll' />
-      <SidebarRoute to='/inscripciones' title='Inscripciones' icon='fas fa-sign-in-alt' />
-      <SidebarRoute to='/page4' title='Avances' icon='fas fa-smile-wink' />
+      <SidebarRouteImagen to='/perfil' title='Perfil' icon='fas fa-user' />
+      <SidebarRoute to='/' title='Inicio' icon='fas fa-home' />
 
-      <SidebarRoute to='/page7' title='Master Inscripciones' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page8' title='Actualizar Datos' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page9' title='Actualizar Proyecto' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/page10' title='Actualizar Avances' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/auth/login' title='Login' icon='fas fa-smile-wink'/>
-      <SidebarRoute to='/auth/register' title='Registro Usuarios' icon='fas fa-smile-wink'/>
+      <PrivateComponent roleList={['ADMINISTRADOR']}>
+      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user'/>
+      </PrivateComponent>
+
+
+      <SidebarRoute to='/proyectos' title='Proyectos' icon='fas fa-scroll' />
+      <SidebarRoute to='/avances' title='Avances' icon='fas fa-book-open' />
+
+      <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
+      <SidebarRoute to='/inscripciones' title='Inscripciones' icon='fas fa-sign-in-alt' />
+      </PrivateComponent>
+      <Logout />
 
     </ul>
   );
+};
+  const Logout = () => {
+    const { setToken } = useAuth();
+    const deleteToken = () => {
+      setToken(null);
+    };
+    return (
+      <li>
+        <button type='button' onClick={() => deleteToken()}>
+          <NavLink to='/auth/login' className='sidebar-route text-red-700'>
+            <div className='flex items-center'>
+              <i className='fas fa-sign-out-alt' />
+              <span className='text-sm  ml-2'>Cerrar Sesión</span>
+            </div>
+          </NavLink>
+        </button>
+      </li>
+    );
 };
 
 const Logo = () => {
@@ -88,5 +111,35 @@ const SidebarRoute = ({ to, title, icon }) => {
     </li>
   );
 };
+
+const SidebarRouteImagen = ({ to, title, icon }) => {
+  const { userData } = useUser();
+  return (
+    <li>
+      <NavLink
+        to={to}
+        className={({ isActive }) =>
+          isActive
+            ? 'sidebar-route text-white bg-indigo-700'
+            : 'sidebar-route text-gray-900 hover:text-white hover:bg-indigo-400'
+        }
+      >
+        <div className='flex items-center'>
+          {userData.foto ? (
+            <img
+              className='h-8 w-8 rounded-full'
+              src={userData.foto}
+              alt='foto'
+            />
+          ) : (
+            <i className={icon} />
+          )}
+          <span className='text-sm  ml-2'>{title}</span>
+        </div>
+      </NavLink>
+    </li>
+  );
+};
+
 
 export default Sidebar;
